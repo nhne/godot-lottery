@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjjpim2slg71m"]
+
+[ext_resource type="Texture2D" uid="uid://bw1lo105urg2t" path="res://icon.svg" id="1_hymko"]
+[ext_resource type="Script" path="res://RootSprite.gd" id="2_phjta"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(1015, 507)
+texture = ExtResource("1_hymko")
+script = ExtResource("2_phjta")
