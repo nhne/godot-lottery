@@ -4,16 +4,15 @@ extends Node2D
 @export var ball_scene: PackedScene
 
 var elapsed = 0
-var spin_speed = PI / 4
+var spin_speed = PI / 8
 var ball_numbers = []
 
-var angular_speed = PI * 2
+var angular_speed = PI
 var speed = 200
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomize()
 	for i in range(1, 46):
 		ball_numbers.append(i)
 	ball_numbers.shuffle()
@@ -34,13 +33,12 @@ func _process(delta):
 		var pusher = $Pusher
 		pusher.rotation += angular_speed * delta
 		var velocity = Vector2.UP.rotated(pusher.rotation) * speed
-		pusher.position += velocity * delta
+		pusher.position += velocity * delta * 2
 
 
 func _spawn_ball(number):
 	var ball = ball_scene.instantiate()
-	var ball_spawn = get_node("SpawnLocation")
-	ball.position = ball_spawn.position
+	ball.position = $SpawnLocation.position
 	ball.position += Vector2(randf_range(-5, 5), 0)
 	ball.set_label(number)
 	add_child(ball)
