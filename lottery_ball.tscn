@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://uheal76u7jvp"]
+
+[ext_resource type="Texture2D" uid="uid://btrpafaclljrr" path="res://assets/lottery_ball.png" id="1_u1diu"]
+[ext_resource type="Script" path="res://lottery_ball.gd" id="1_vut0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h5giq"]
+radius = 25.02
+
+[sub_resource type="SystemFont" id="SystemFont_ymemt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bn8vc"]
+font = SubResource("SystemFont_ymemt")
+font_size = 120
+font_color = Color(0, 0, 0, 1)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_vut0b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h5giq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-06, -3.8147e-06)
+scale = Vector2(0.0976563, 0.0976563)
+texture = ExtResource("1_u1diu")
+
+[node name="NumberLabel" type="Label" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.402
+anchor_right = 0.722
+anchor_bottom = 0.612
+offset_left = -274.944
+offset_top = -297.984
+offset_right = -273.064
+offset_bottom = -237.504
+text = "45"
+label_settings = SubResource("LabelSettings_bn8vc")
+horizontal_alignment = 1
+vertical_alignment = 1

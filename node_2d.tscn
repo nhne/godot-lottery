@@ -1,9 +1,107 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjjpim2slg71m"]
+[gd_scene load_steps=7 format=3 uid="uid://bjjpim2slg71m"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_8c45q"]
 [ext_resource type="Texture2D" uid="uid://bw1lo105urg2t" path="res://icon.svg" id="1_hymko"]
-[ext_resource type="Script" path="res://RootSprite.gd" id="2_phjta"]
+[ext_resource type="PackedScene" uid="uid://uheal76u7jvp" path="res://lottery_ball.tscn" id="2_xmj5r"]
 
-[node name="Sprite2D" type="Sprite2D"]
-position = Vector2(1015, 507)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2ysf"]
+size = Vector2(676, 64)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0irs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjos8"]
+size = Vector2(120.25, 119)
+
+[node name="root" type="Node2D"]
+position = Vector2(619, 337)
+script = ExtResource("1_8c45q")
+ball_scene = ExtResource("2_xmj5r")
+
+[node name="SpawnLocation" type="Node2D" parent="."]
+position = Vector2(-29, -163)
+
+[node name="BoxRoot" type="Node2D" parent="."]
+position = Vector2(400, 168)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="BoxRoot"]
+position = Vector2(4, -4)
+gravity_scale = 0.0
+sleeping = true
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxRoot/RigidBody2D"]
+position = Vector2(-444, 108)
+shape = SubResource("RectangleShape2D_h2ysf")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxRoot/RigidBody2D"]
+texture_repeat = 2
+position = Vector2(-443, 108)
+scale = Vector2(1148, 68)
+texture = SubResource("PlaceholderTexture2D_j0irs")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="BoxRoot"]
+position = Vector2(-62, 510)
+rotation = 1.5708
+gravity_scale = 0.0
+sleeping = true
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxRoot/RigidBody2D2"]
+position = Vector2(-686, 72)
+shape = SubResource("RectangleShape2D_h2ysf")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxRoot/RigidBody2D2"]
+texture_repeat = 2
+position = Vector2(-701.039, 71.4224)
+scale = Vector2(627.57, 68)
+texture = SubResource("PlaceholderTexture2D_j0irs")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="BoxRoot"]
+position = Vector2(-639, 496)
+rotation = 1.5708
+gravity_scale = 0.0
+sleeping = true
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxRoot/RigidBody2D3"]
+position = Vector2(-681, 108)
+shape = SubResource("RectangleShape2D_h2ysf")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxRoot/RigidBody2D3"]
+texture_repeat = 2
+position = Vector2(-696.906, 107.109)
+scale = Vector2(640.188, 69.7817)
+texture = SubResource("PlaceholderTexture2D_j0irs")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="BoxRoot"]
+position = Vector2(4, -579)
+gravity_scale = 0.0
+sleeping = true
+lock_rotation = true
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxRoot/RigidBody2D4"]
+position = Vector2(-444, 108)
+shape = SubResource("RectangleShape2D_h2ysf")
+
+[node name="Sprite2D" type="Sprite2D" parent="BoxRoot/RigidBody2D4"]
+texture_repeat = 2
+position = Vector2(-443, 108)
+scale = Vector2(1148, 68)
+texture = SubResource("PlaceholderTexture2D_j0irs")
+
+[node name="Pusher" type="RigidBody2D" parent="."]
+position = Vector2(-152, -18)
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pusher"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_mjos8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pusher"]
+position = Vector2(3.8147e-06, 3)
+scale = Vector2(0.914063, 1)
 texture = ExtResource("1_hymko")
-script = ExtResource("2_phjta")
